@@ -15,24 +15,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('userinfo', function () {
-    $userinfo = App\UserInfo::find('O10000000001');
-    echo $userinfo->firstname;
-});
-
 
 Route::auth();
 
 Route::get('/home', 'HomeController@index');
 
-Route::auth();
+Route::get('/books', 'mycontrollers\BooksPageController@index');
 
-Route::get('/home', 'HomeController@index');
-
-Route::auth();
-
-Route::get('/home', 'HomeController@index');
-
-Route::auth();
-
-Route::get('/home', 'HomeController@index');
+Route::get('/profile', 'mycontrollers\ProfilePageController@index');
+?>

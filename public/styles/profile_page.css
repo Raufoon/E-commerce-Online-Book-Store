@@ -1,0 +1,17 @@
+.maindiv{
+	border: 3px red solid;
+	width: 100%;
+	height: 700px;
+}
+.adddiv{
+	border: 3px blue solid;
+	width: 10%;
+	height: 100%;
+	float: left;
+}
+.banner{
+	border: 3px green solid;
+	width: 90%;
+	height: 200px;
+	float: right;
+}

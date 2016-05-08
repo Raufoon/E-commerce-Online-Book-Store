@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Laravel</title>
+    <title>Arunachol</title>
 
     <!-- Fonts -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css" integrity="sha384-XdYbMnZ/QjLh6iI4ogqCTaIjrFk87ip+ekIjefZch0Y+PvJ8CDYtEs1ipDmPorQ+" crossorigin="anonymous">
@@ -13,10 +13,7 @@
 
     <!-- Styles -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-
     {{-- <link href="{{ elixir('css/app.css') }}" rel="stylesheet"> --}}
-
-    @yield('other_styles')
 
     <style>
         body {
@@ -29,7 +26,7 @@
     </style>
 </head>
 <body id="app-layout">
-    <nav class="navbar navbar-default navbar-static-top" style="background-color: white;">
+    <nav class="navbar navbar-default navbar-static-top">
         <div class="container">
             <div class="navbar-header">
 
@@ -42,32 +39,16 @@
                 </button>
 
                 <!-- Branding Image -->
-                <a class="navbar-brand"  href="{{ url('/') }}">
-                    <font color="green" style="font-weight: bold;" face="Papyrus" size="6px">Arunachol.com</font>
+                <a class="navbar-brand" href="{{ url('/') }}">
+                    Arunachol.com
                 </a>
-                
             </div>
 
             <div class="collapse navbar-collapse" id="app-navbar-collapse">
                 <!-- Left Side Of Navbar -->
-                @if (Auth::guest())
-                @else
                 <ul class="nav navbar-nav">
                     <li><a href="{{ url('/home') }}">Home</a></li>
                 </ul>
-
-                <ul class="nav navbar-nav">
-                    <li><a href="{{ url('/books') }}">Buy books</a></li>
-                </ul>
-
-                <ul class="nav navbar-nav">
-                    <li><a href="{{ url('/auctions') }}">Auctions</a></li>
-                </ul>
-
-                <ul class="nav navbar-nav">
-                    <li><a href="{{ url('/about') }}">About us</a></li>
-                </ul>
-                @endif
 
                 <!-- Right Side Of Navbar -->
                 <ul class="nav navbar-nav navbar-right">
@@ -76,56 +57,12 @@
                         <li><a href="{{ url('/login') }}">Login</a></li>
                         <li><a href="{{ url('/register') }}">Register</a></li>
                     @else
-                        <!-- search bar -->
-                        <div
-                            style=" float: left;
-                                    padding: 5px;
-                                    vertical-align: bottom;
-                                    margin: 5px auto;
-                                    margin-right: 40px;"
-                        >
-                        <form>
-                        <style type="text/css">
-                            input:focus {
-                                outline:none;
-                            }
-                        </style>
-                            <img src="images/searchicon.png"
-                                height="20px" width="20px">
-                            <input name="search_word" placeholder="search here"
-                                style="
-                                width: 200px;
-                                height: 30px;
-                                border: 0px;
-                                margin-left: 5px;
-                                border-bottom: 1px dotted;" 
-                            >
-
-                        </form>
-                        </div>
-
-                        <!-- check if the user is a worker -->
-                        <ul class="nav navbar-nav">
-                            <li><a href="{{ url('/inbox') }}">
-                                <img src="images/msg_icon.png"
-                                width="25px" height="25px" />
-                            </a></li>
-                            <li><a href="{{ url('/notification') }}">
-                                <img src="images/notification_icon.png"
-                                width="25px" height="25px" />
-                            </a></li>
-
-                        </ul>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                                 {{ Auth::user()->name }} <span class="caret"></span>
                             </a>
 
                             <ul class="dropdown-menu" role="menu">
-                                <li><a href="{{ url('/profile') }}"><i class="fa fa-btn fa-sign-out"></i>Profile</a></li>
-
-                                <li><a href="{{ url('/settings') }}"><i class="fa fa-btn fa-sign-out"></i>Settings</a></li>
-
                                 <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
                             </ul>
                         </li>
