@@ -42,6 +42,8 @@ Route::post('/profile/save_edit', ['before' => 'csrf', 'uses' => 'mycontrollers\
 
 Route::get('/profile/{page}', 'mycontrollers\ProfilePageController@index');
 
-Route::get('/profile/view/{id}','mycontrollers\ProfileViewController@index');
+Route::get('/profile/view/{profile_id}','mycontrollers\ProfileViewController@index');
+
+Route::get('/profile/view/{profile_id}/{page}','mycontrollers\ProfileViewController@loadSection');
 
 ?>

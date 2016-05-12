@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\mycontrollers;
 
+use Auth;
+use View;
 use App\Http\Requests;
 use Illuminate\Http\Request;
 
@@ -22,11 +24,24 @@ class ProfileViewController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($id)
+    public function index($profile_id)
     {
-        $newpage = 'myviews\profile\profilepage_view?';
-        $newpage = $newpage.$id;
-        return view($newpage);
+        $view;
+        if($profile_id == Auth::user()->id)
+        {
+            $view = View::make('myviews\profile\profilepage_about');
+        }
+        else $view = View::make('myviews\profile\viewprofile_about')->with('profile_id', $profile_id);
+        return $view;
     }
+
+    public function loadSection($profile_id,$page)
+    {
+        // solve the same id issue
+        $view = View::make('myviews\profile\viewprofile_'.$page)->with('profile_id', $profile_id);
+        return $view;
+    }
+
+
 
 }
