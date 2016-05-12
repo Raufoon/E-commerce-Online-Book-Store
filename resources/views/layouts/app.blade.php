@@ -90,15 +90,16 @@
                                 outline:none;
                             }
                         </style>
-                            <img src="images/searchicon.png"
+                            <img src="{{URL::asset('images/searchicon.png')}}"
                                 height="20px" width="20px">
-                            <input name="search_word" placeholder="search here"
+                            <input name="search_word" placeholder="  search here"
                                 style="
                                 width: 200px;
                                 height: 30px;
                                 border: 0px;
                                 margin-left: 5px;
-                                border-bottom: 1px dotted;" 
+                                background-color: #fbfbfb;
+                                border-radius: 5px;" 
                             >
 
                         </form>
@@ -107,11 +108,11 @@
                         <!-- check if the user is a worker -->
                         <ul class="nav navbar-nav">
                             <li><a href="{{ url('/inbox') }}">
-                                <img src="images/msg_icon.png"
+                                <img src="{{URL::asset('images/msg_icon.png')}}"
                                 width="25px" height="25px" />
                             </a></li>
                             <li><a href="{{ url('/notification') }}">
-                                <img src="images/notification_icon.png"
+                                <img src="{{URL::asset('images/notification_icon.png')}}"
                                 width="25px" height="25px" />
                             </a></li>
 
@@ -137,6 +138,22 @@
 
     @yield('content')
 
+    @if (Auth::guest())
+    @else
+    <style type="text/css">
+    .floatingOption{
+    width: 35%;
+    height: 50px;
+    float: left;
+    border: 2px white solid;
+    position: fixed;
+    bottom: 0;
+    }
+    </style>
+    <div class="floatingOption">
+            @yield('floating')
+    </div> 
+    @endif
     <!-- JavaScripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.min.js" integrity="sha384-I6F5OKECLVtK/BL+8iSLDEHowSAfUo76ZL9+kGAgTRdiByINKJaqTPH/QVNS1VDb" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
