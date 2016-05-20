@@ -9,7 +9,80 @@
 
 
 @section('profile_pic')
+<!-- modal -->
 
+<style>
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 50%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+.submit_modal_btn{
+	width: 150px;
+	height: 50px;
+	font-size: 15px;
+	border: 3px #f08080 solid;
+	border-radius: 5px;
+	color: white;
+	background-color: #f08080;
+}
+</style>
+<!-- 
+A modal is an html code which appears to be over the page as pop up window
+but technically it is not. It justs blurrs the current page contents and 
+overdraw a content on that,	
+-->
+<div id="myModal" class="modal">
+	<!-- Modal content -->
+	<div class="modal-content">
+	  <div class="modal-header">
+	    <span class="close">×</span>
+	    <h2>Upload a profile picture</h2>
+	  </div>
+	  <form method="POST" action="/profile/propic/save" enctype="multipart/form-data">
+	  <div class="modal-body">
+	    
+	    	<input type="file" name="pp_to_upload" accept=".jpg">
+	    	<input type="hidden" name="_token" value="{{ csrf_token() }}">
+	  </div>
+	  <div class="modal-footer">
+	    	<input type="submit" value="Submit"  class="submit_modal_btn"></input>
+	  </div>
+	  </form>
+	</div>
+</div>
 
 	<style type="text/css">
 		.prof_img{
@@ -43,12 +116,41 @@
 	-->
 	@if($user_info->haspropic == false)
 	<!-- default propic -->
-	<img class="prof_img" src="{{URL::asset('images/propics/default_propic.png')}}" >
+	<img class="prof_img" src="{{URL::asset('images/propics/default_propic.png')}}" onclick="changePicture()">
 	@else
 	<!-- user has propic -->
 	<?php $propicsrc= 'images/propics/'.$user_info->id.'.jpg'; ?>
-	<img class="prof_img" src="{{URL::asset($propicsrc)}}">
+	<img class="prof_img" src="{{URL::asset($propicsrc)}}"  onclick="changePicture()">
 	@endif
+
+	<script type="text/javascript">
+	/*
+	called after user clicks on his/her profile picture and then selects a picture and clicks
+	submit
+	*/
+	function changePicture()
+	{
+		// Get the modal
+		var modal = document.getElementById('myModal');
+
+		// Get the <span> element that closes the modal
+		var span = document.getElementsByClassName("close")[0];
+
+		modal.style.display = "block";
+		
+		// When the user clicks on <span> (x), close the modal
+		span.onclick = function() {
+		    modal.style.display = "none";
+		}
+
+		// When the user clicks anywhere outside of the modal, close it
+		window.onclick = function(event) {
+		    if (event.target == modal) {
+		        modal.style.display = "none";
+		    }
+		}
+	}
+	</script>
 
 
 

@@ -47,5 +47,24 @@ class ProfilePageController extends Controller
         $user_info->save();
         return view('myviews\profile\profilepage_about');
     }
+    public function savePropic()
+    {
+        $user_id = Auth::user()->id;
+        $target_dir = "images/propics/";
+        $target_file = $target_dir . $user_id.".jpg";
+
+        if ($_FILES['pp_to_upload']['size'] == 0 )
+        {
+            return view('myviews\profile\profilepage_about');
+        }
+
+        move_uploaded_file($_FILES["pp_to_upload"]["tmp_name"], $target_file);
+
+        $user_info = UserInfo::find($user_id);
+        $user_info->haspropic = true;
+        $user_info->save();
+
+        return view('myviews\profile\profilepage_about');
+    }
 
 }

@@ -21,29 +21,52 @@ Route::auth();
 Route::get('/home', 'HomeController@index');
 
 Route::get('/books', 'mycontrollers\BooksPageController@index');
+Route::post('/books', 'mycontrollers\BooksPageController@process_filter');
 
-Route::get('/profile/styles/profile_page.css',function()
-{
-    return view('styles/profilepage.css');
-});
 
+/*
+default page is set as 'about' page
+*/
 Route::get('/profile', ['middleware' => 'auth', function()
 {
     return view('myviews/profile/profilepage_about');
 }]);
 
+/*
+goes to edit profile page
+*/
 Route::get('/profile/about/edit', ['middleware' => 'auth', function()
 {
     return view('myviews/profile/profilepage_edit');
 }]);
 
+/*
+form submitted here after editing profile
+*/
 Route::post('/profile/save_edit', ['before' => 'csrf', 'uses' => 'mycontrollers\ProfilePageController@updateDatabase'] );
 
-
+/*
+goes to a section of profile page named by $page 
+*/
 Route::get('/profile/{page}', 'mycontrollers\ProfilePageController@index');
 
+/*
+if logged in user chooses to view someones profile
+*/
 Route::get('/profile/view/{profile_id}','mycontrollers\ProfileViewController@index');
 
+/*
+if logged in user chooses to view someones profile and a particular section of that profile
+*/
 Route::get('/profile/view/{profile_id}/{page}','mycontrollers\ProfileViewController@loadSection');
 
+/*
+when profile picture needs to be uploaded
+*/
+Route::post('/profile/propic/save', 'mycontrollers\ProfilePageController@savePropic');
+
+/*
+routes to search page
+*/
+Route::get('/search','mycontrollers\SearchResultController@search');
 ?>

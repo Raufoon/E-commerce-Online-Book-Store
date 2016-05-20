@@ -37,8 +37,12 @@ class ProfileViewController extends Controller
 
     public function loadSection($profile_id,$page)
     {
-        // solve the same id issue
-        $view = View::make('myviews\profile\viewprofile_'.$page)->with('profile_id', $profile_id);
+        $view;
+        if($profile_id == Auth::user()->id)
+        {
+            $view = View::make('myviews\profile\profilepage_'.$page);
+        }
+        else $view = View::make('myviews\profile\viewprofile_'.$page)->with('profile_id', $profile_id);
         return $view;
     }
 

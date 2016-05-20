@@ -9,20 +9,20 @@
 	background-color: white;
 }
 .middle_main_div{
-	width: 78%;
+	width: 81%;
 	height: 100%;
 	margin-left: 50px;
 	float: left;
 	
 }
 .right_add_div{
-	width: 13%;
+	width: 10%;
 	height: 100%;
 	float: right;
 }
 .banner_div{
 	width: 100%;
-	height: 200px;
+	height: 16vw;
 	padding: 10px;
 	margin-bottom: 10px;
 	border: 0px solid #d6d6d6;
@@ -31,7 +31,7 @@
 
 .options_tab_div{
 	width: 100%;
-	height: 45px;
+	height: 3.5vw;
 	margin-top: 15px;
 	box-shadow: 0 0 15px 1px #d6d6d6;
 }
@@ -49,7 +49,7 @@
 }
 .content_div{
 	width: 100%;
-	height: 550px;
+	height: 55vw;
 	margin-bottom: 5px;
 	margin-top: 10px;
 	box-shadow: 0 0 15px 1px #d6d6d6;

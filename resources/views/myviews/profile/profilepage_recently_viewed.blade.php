@@ -7,3 +7,7 @@
 	<button class="option_button" onclick="newPage('/profile/my_purchases')">Purchase history</button>
 	<button class="option_button" onclick="newPage('/profile/my_sales')">Sale history</button>
 @endsection
+
+@section('content_section')
+MEOW
+@endsection

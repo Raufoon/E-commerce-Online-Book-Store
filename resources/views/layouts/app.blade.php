@@ -76,6 +76,10 @@
                         <li><a href="{{ url('/login') }}">Login</a></li>
                         <li><a href="{{ url('/register') }}">Register</a></li>
                     @else
+
+
+
+
                         <!-- search bar -->
                         <div
                             style=" float: left;
@@ -84,15 +88,15 @@
                                     margin: 5px auto;
                                     margin-right: 40px;"
                         >
-                        <form>
+                        <form id="search_get_form" method="get" action="/search">
                         <style type="text/css">
                             input:focus {
                                 outline:none;
                             }
                         </style>
                             <img src="{{URL::asset('images/searchicon.png')}}"
-                                height="20px" width="20px">
-                            <input name="search_word" placeholder="  search here"
+                                height="20px" width="20px" onclick="submitSearch()">
+                            <input name="search_word" placeholder="  search here" value="" 
                                 style="
                                 width: 200px;
                                 height: 30px;
@@ -101,9 +105,21 @@
                                 background-color: #fbfbfb;
                                 border-radius: 5px;" 
                             >
+                            <script type="text/javascript">
+                                function submitSearch()
+                                {
+                                    document.getElementById("search_get_form").submit();
+                                }
+                            </script>
+                            <br>
+
+
 
                         </form>
                         </div>
+
+
+
 
                         <!-- check if the user is a worker -->
                         <ul class="nav navbar-nav">

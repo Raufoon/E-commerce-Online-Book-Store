@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers\Auth;
 
+use DateTime;
 use App\User;
 use App\UserInfo;
+use App\UserType;
 use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
@@ -64,19 +66,37 @@ class AuthController extends Controller
      */
     protected function create(array $data)
     {
+        /*
+        filling user table
+        */
         $user = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
         ]);
 
-        $date = date("m-d-y");
+        $dt = new DateTime;
+
+        /*
+        filling user_info table
+        */
         $new_user_info=array(
         'id' => $user->id,
         'name' => $data['name'],
-        'member_since' => $date,
+        'member_since' => $dt->format('y-m-d'),
         );
         $user_info = UserInfo::create($new_user_info);
+
+        /*
+        assigning user type
+        */
+        $new_user_type=array(
+        'id' => $user->id,
+        'type' => 'user',
+        );
+        $user_type = UserType::create($new_user_type);
+
+
 
         return $user;
     }
