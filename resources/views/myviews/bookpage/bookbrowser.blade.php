@@ -115,7 +115,7 @@ adding all books from database
 	foreach ($all_books as $book) {
 		$img_src= "/images/bookpics/".$book->id.".jpg";
 
-		//filter here
+		//filter here by comparing the filter values
 		if( strcmp(strtolower($category), "all")!= 0 
 			&& strcmp(strtolower($category), strtolower($book->category))!= 0) continue;
 
