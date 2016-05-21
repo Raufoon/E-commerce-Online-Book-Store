@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Books extends Model
 {
     //
-    protected $table = 'books';
+    protected $table = 'inventory_books';
 
     public $timestamps = false;
 

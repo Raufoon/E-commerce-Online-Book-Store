@@ -303,6 +303,7 @@ overdraw a content on that,
 		background-color: white;
 		width: 150px;
 	}
+	
 	</style>
 
 	@yield('options_array')

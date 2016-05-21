@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\mycontrollers;
 
 use Auth;
+use App\UserType;
 use App\UserInfo;
 use App\Http\Requests;
 use Illuminate\Http\Request;
@@ -26,8 +27,26 @@ class ProfilePageController extends Controller
      */
     public function index($page)
     {
+        if(strcmp($page, "office")===0)
+        {
+            $user_login = Auth::user();
+            $user_type = UserType::find($user_login->id);
+            if(strcmp($user_type->type, "owner")===0)
+            {
+                return view('myviews\profile\offices\owner_office');
+            }
+            if(strcmp($user_type->type, "manager")===0)
+            {
+                return view('myviews\profile\offices\manager_office_status');
+            }
+        }
         $newpage = 'myviews\profile\profilepage_';
         $newpage = $newpage.$page;
+        return view($newpage);
+    }
+    public function open_office_page($page,$section)
+    {
+        $newpage = 'myviews\profile\offices\manager_'.$page.'_'.$section;
         return view($newpage);
     }
 

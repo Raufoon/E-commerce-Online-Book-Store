@@ -45,15 +45,18 @@ form submitted here after editing profile
 */
 Route::post('/profile/save_edit', ['before' => 'csrf', 'uses' => 'mycontrollers\ProfilePageController@updateDatabase'] );
 
-/*
-goes to a section of profile page named by $page 
-*/
-Route::get('/profile/{page}', 'mycontrollers\ProfilePageController@index');
 
 /*
 if logged in user chooses to view someones profile
 */
 Route::get('/profile/view/{profile_id}','mycontrollers\ProfileViewController@index');
+/*
+goes to a section of profile page named by $page 
+*/
+Route::get('/profile/{page}/{section}', 'mycontrollers\ProfilePageController@open_office_page');
+
+Route::get('/profile/{page}', 'mycontrollers\ProfilePageController@index');
+
 
 /*
 if logged in user chooses to view someones profile and a particular section of that profile
