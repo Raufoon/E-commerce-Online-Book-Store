@@ -34,4 +34,19 @@ class BooksPageController extends Controller
 
         return $view;
     }
+    public function viewBook()
+    {
+        $id_of_book_to_view = $_POST["view_book_id"];
+        $view_mode=$_POST["view_book_mode"];
+        $book_type = $_POST["view_book_type"]; // advertised or inventory
+
+        if(strcmp($view_mode, "view")===0)
+        {
+            return view('myviews\bookpage\book')->with('book_id',$id_of_book_to_view)->with('book_type',$book_type);
+        }
+        else if(strcmp($view_mode, "view_edit")===0)
+        {
+            return view('myviews\bookpage\book_edit')->with('book_id',$id_of_book_to_view)->with('book_type',$book_type);
+        }
+    }
 }

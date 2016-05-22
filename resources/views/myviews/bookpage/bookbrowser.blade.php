@@ -16,6 +16,26 @@
 @section('main_content')
 <div style="height:100%; width:100%;">
 
+<!-- hidden form, if user wants to view a book-->
+<form action="/view/book" method="post" id="view_book_form" hidden>
+	<input type="hidden" name="_token" value="{{ csrf_token() }}">
+	<input name="view_book_id" id="view_book_id" hidden>
+	<input name="view_book_mode" value="view" hidden>
+	<input name="view_book_type" value="inventory" hidden>
+</form>
+<script type="text/javascript">
+	function viewBook(id)
+	{
+		document.getElementById('view_book_id').value = id;
+		document.getElementById('view_book_form').submit();
+
+	}
+</script>
+
+
+
+
+
 <div class="small_header dark_grey" >
 	<label style="margin-left: 1vw;" >Books</label>
 </div>
@@ -61,7 +81,7 @@
 	  	<option class="small_dropdown_option" value="pr_3">501-1000</option>
 	  	<option class="small_dropdown_option" value="pr_4">>1000</option>
 	</select>
-	<select name="sell_type" class="small_options_btn"
+	<select name="sell_type" class="small_options_btn" hidden 
 	oninput="filter_books('-','-',this.value,'-','-')">
 		<option class="small_dropdown_option"selected disabled hidden>Sell type</option>
 		<option class="small_dropdown_option" value="all">All</option>
@@ -143,7 +163,7 @@ adding all books from database
 		// endfilter
 
 		?>
-	<div class="small_book_view">
+	<div class="small_book_view" >
 		<div style="width: 32%;height:100%;background-color: white;float: left;">
 			<img style="border:none;width:100%;height:100%;" 
 			src="{{URL::asset($img_src)}}" 
@@ -153,7 +173,7 @@ adding all books from database
 		<div style="width: 66%;height:100%;margin-left:2%;float: right;">
 			
 			<table style="width:100%;height:100%;">
-				<tr><td style="font-weight: bold;">{{$book->name}}</td></tr>
+				<tr><td onclick="viewBook('{{$book->id}}')" style="font-weight: bold;"><a>{{$book->name}}</a></td></tr>
 				<tr><td>Author: {{$book->author}}</td></tr>
 				<tr><td>Print: {{$book->print}}</td></tr>
 				<tr><td>Price: {{$book->price}}</td></tr>

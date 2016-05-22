@@ -1,6 +1,6 @@
-@extends('layouts.app')
+@extends('layouts.page')
 
-@section('content')
+@section('main_content')
 
 <div style="width: 100%;">
 
@@ -16,9 +16,9 @@
 	-->
 
 	<div style="
-		width: 72%; 
+		width: 100%; 
 		float: left;
-		margin-left: 1%;
+		margin-left: 0 auto;
 		box-shadow: 0 0 15px 1px #d6d6d6;
 		">
 
@@ -92,7 +92,7 @@
 				Each div contains a member's profile and it's information
 				-->
 				<div style="
-					width: 20vw;
+					width: 18vw;
 					height: 4vw;
 					margin: 1vw;
 					float: left;
@@ -143,34 +143,7 @@
 	Right section, shows advanced search options
 	-->
 
-	<div style="
-		width: 25%;
-		height: 50vw;
-		float: right;
-		position: fixed;
-		right: 0;
-		box-shadow: 0 0 15px 1px #d6d6d6;">
-
-
-
-		<!-- 
-		label that holds the word 'Advanced Search'
-		-->
-		<label style="
-			font-size: 2vw;
-			width: 100%;
-			padding: 5px;
-			color: white;
-			background-color: #ffc966;
-			font-weight: normal;
-		">
-			Advanced search
-		</label>
-
-
-		
-	</div>
-
+	
 
 </div>
 

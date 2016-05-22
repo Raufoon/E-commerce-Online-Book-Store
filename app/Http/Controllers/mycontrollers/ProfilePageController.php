@@ -86,4 +86,6 @@ class ProfilePageController extends Controller
         return view('myviews\profile\profilepage_about');
     }
 
+
+
 }

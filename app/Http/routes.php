@@ -20,8 +20,12 @@ Route::auth();
 
 Route::get('/home', 'HomeController@index');
 
+
 Route::get('/books', 'mycontrollers\BooksPageController@index');
 Route::post('/books', 'mycontrollers\BooksPageController@process_filter');
+Route::post('/view/book','mycontrollers\BooksPageController@viewBook');
+
+
 
 Route::get('/global/{page}', 'mycontrollers\Controller@loadPage');
 /*

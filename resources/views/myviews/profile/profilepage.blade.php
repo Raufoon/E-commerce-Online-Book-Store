@@ -158,6 +158,12 @@ overdraw a content on that,
 
 
 @section('short_info')
+<?php
+
+?>
+
+
+
 
 
 	<style type="text/css">
