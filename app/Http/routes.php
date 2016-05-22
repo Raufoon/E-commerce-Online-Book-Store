@@ -32,6 +32,8 @@ Route::get('/profile', ['middleware' => 'auth', function()
     return view('myviews/profile/profilepage_about');
 }]);
 
+
+
 /*
 goes to edit profile page
 */
@@ -40,11 +42,28 @@ Route::get('/profile/about/edit', ['middleware' => 'auth', function()
     return view('myviews/profile/profilepage_edit');
 }]);
 
+
+
 /*
 form submitted here after editing profile
 */
 Route::post('/profile/save_edit', ['before' => 'csrf', 'uses' => 'mycontrollers\ProfilePageController@updateDatabase'] );
 
+
+/*
+addition of new book by manager
+*/
+Route::post('/profile/office/inventory/book_add','mycontrollers\ManagerFunctionController@addBookToDatabase');
+
+/*
+advertisement of book by user
+*/
+Route::post('/advertise_book','mycontrollers\UserAdController@addAd');
+
+/*
+when user deletes an advertisement
+*/
+Route::post('/remove_ad','mycontrollers\UserAdController@removeAd');
 
 /*
 if logged in user chooses to view someones profile

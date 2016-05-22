@@ -284,11 +284,7 @@ overdraw a content on that,
 	</div>
 @endsection
 
-@section('left_add_space')
-@endsection
 
-@section('right_add_space')
-@endsection
 
 @section('options')
 

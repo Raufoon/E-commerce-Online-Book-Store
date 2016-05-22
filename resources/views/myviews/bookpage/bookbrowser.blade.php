@@ -59,7 +59,7 @@
 		<option class="small_dropdown_option" value="pr_1"> &lt;250 </option>
 	  	<option class="small_dropdown_option" value="pr_2">250-500</option>
 	  	<option class="small_dropdown_option" value="pr_3">501-1000</option>
-	  	<option class="small_dropdown_option" value="pr_4">1001-2000</option>
+	  	<option class="small_dropdown_option" value="pr_4">>1000</option>
 	</select>
 	<select name="sell_type" class="small_options_btn"
 	oninput="filter_books('-','-',this.value,'-','-')">

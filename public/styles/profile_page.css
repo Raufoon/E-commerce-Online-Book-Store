@@ -1,9 +1,12 @@
+html{
+	overflow: auto;
+}
 .maindiv{
 	width: 100%;
 	background-color: #fbfefe;
 }
 .left_add_div{
-	width: 7%;
+	width: 1.5%;
 	height: 100%;
 	float: left;
 	background-color: white;
@@ -16,9 +19,15 @@
 	
 }
 .right_add_div{
-	width: 10%;
-	height: 100%;
-	float: right;
+	width: 8%;
+	position: fixed;
+	margin-top: 2vw;
+	right: 0;
+	background-color: #758a81;
+	height: 35vw;
+	border-top-left-radius: 50px;
+	border-bottom-left-radius: 50px;
+	
 }
 .banner_div{
 	width: 100%;
