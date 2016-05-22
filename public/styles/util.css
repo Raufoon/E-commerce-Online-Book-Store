@@ -130,6 +130,15 @@
 			float: left;
 			color: #0099cc;
 			font-weight: normal;
-			font-size: 2vw;
-			
+			font-size: 2vw;			
+}
+
+.subsec_label.big{
+			width: 100%;
+			float: left;
+			background-color: #4d8379;
+			color: white;
+			font-weight: normal;
+			font-size: 2.5vw;			
+			padding: 10px;
 }

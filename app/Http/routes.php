@@ -23,7 +23,7 @@ Route::get('/home', 'HomeController@index');
 Route::get('/books', 'mycontrollers\BooksPageController@index');
 Route::post('/books', 'mycontrollers\BooksPageController@process_filter');
 
-
+Route::get('/global/{page}', 'mycontrollers\Controller@loadPage');
 /*
 default page is set as 'about' page
 */

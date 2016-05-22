@@ -61,12 +61,14 @@
                 </ul>
 
                 <ul class="nav navbar-nav">
+                    <li><a href="{{ url('/global/ads_by_user') }}">Ads by users</a></li>
+                </ul>
+                
+                <ul class="nav navbar-nav">
                     <li><a href="{{ url('/auctions') }}">Auctions</a></li>
                 </ul>
 
-                <ul class="nav navbar-nav">
-                    <li><a href="{{ url('/about') }}">About us</a></li>
-                </ul>
+                
                 @endif
 
                 <!-- Right Side Of Navbar -->

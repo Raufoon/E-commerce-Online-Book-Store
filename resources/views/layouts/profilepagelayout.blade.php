@@ -159,7 +159,7 @@ overdraw a content on that,
                 <img class="cart_img mid" src="{{URL::asset('images/auction.png')}}">
             </div>
             <div style="width:100%; height: 25%;">
-                <center><label class="cart_label">New Action</label></center>
+                <center><label class="cart_label">New Auction</label></center>
             </div>
         </div>
     </div>
