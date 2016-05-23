@@ -26,6 +26,12 @@ Route::post('/books', 'mycontrollers\BooksPageController@process_filter');
 Route::post('/view/book','mycontrollers\BooksPageController@viewBook');
 
 
+/*
+after clicking on addToCart button
+*/
+Route::post('/add_to_cart','mycontrollers\BusinessController@addToCart');
+
+
 
 Route::get('/global/{page}', 'mycontrollers\Controller@loadPage');
 /*

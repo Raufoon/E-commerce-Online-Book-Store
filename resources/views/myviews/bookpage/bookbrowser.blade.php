@@ -23,12 +23,40 @@
 	<input name="view_book_mode" value="view" hidden>
 	<input name="view_book_type" value="inventory" hidden>
 </form>
+
 <script type="text/javascript">
 	function viewBook(id)
 	{
 		document.getElementById('view_book_id').value = id;
 		document.getElementById('view_book_form').submit();
 
+	}
+	function addToCart(id)
+	{
+		var xhttp = new XMLHttpRequest();
+		xhttp.onreadystatechange = function() {
+		    if (xhttp.readyState == 4 && xhttp.status == 200) {
+
+		    	var str1 = "btn_";
+		    	var resp=xhttp.responseText;
+		    	
+		    	resp = resp.replace(/"/g, "");
+		    	
+		    	var btn_id = str1.concat(resp);
+
+			    document.getElementById(btn_id).innerHTML = "Already added";
+			    document.getElementById(btn_id).disabled = true;
+		    }
+		};
+		xhttp.open("POST", "/add_to_cart", true);
+		xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+		xhttp.setRequestHeader("X-CSRF-Token", "{{ csrf_token() }}");
+
+		var str1="book_to_add_cart=";
+		var param = str1.concat(id);
+		param = param.concat("&sell_from=inventory");
+		xhttp.send(param);
+		
 	}
 </script>
 
@@ -177,7 +205,33 @@ adding all books from database
 				<tr><td>Author: {{$book->author}}</td></tr>
 				<tr><td>Print: {{$book->print}}</td></tr>
 				<tr><td>Price: {{$book->price}}</td></tr>
-				<tr><td> <button >Add to cart</button> </td></tr>
+				<tr>
+					<td>
+					<?php
+					
+					if( App\Cart::where('user_id',Auth::user()->id)->where('book_id',$book->id)->where('sell_from',"inventory")->get()->count() !=0 )
+					{
+						?>
+						<button type="button"
+						id="btn_{{$book->id}}" 
+						onclick = "addToCart('{{$book->id}}')" 
+						style="background-color: white;"
+						disabled>Already added</button> 
+						<?php
+					}
+					else{
+						?>
+						<button type="button"
+						id="btn_{{$book->id}}" 
+						onclick = "addToCart('{{$book->id}}')" 
+						>Add to cart</button> 
+						<?php
+					}
+					?>
+
+					
+					</td>
+				</tr>
 			</table>
 			
 		</div>
