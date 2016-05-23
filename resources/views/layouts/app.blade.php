@@ -154,6 +154,12 @@
         </div>
     </nav>
 
+    <?php
+    App\Cart::where('status','paid')->delete();
+    App\Books::where('status','sold')->delete();
+    App\AdvertisedBooks::where('status','sold')->delete();
+    ?>
+
     @yield('content')
 
     

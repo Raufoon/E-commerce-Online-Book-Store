@@ -134,6 +134,7 @@
 adding all books from database 
 -->
 <?php
+	
 	foreach ($all_books as $book) {
 		$img_src= "/images/bookpics/".$book->id.".jpg";
 

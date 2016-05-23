@@ -70,6 +70,7 @@
                 resp = resp.replace(/"/g, "");
 
                  document.getElementById(resp).hidden = true;
+                 location.reload();
             }
         };
         xhttp.open("POST", "/remove_from_cart", true);
@@ -98,6 +99,7 @@
 
                 document.getElementById(btn_id).innerHTML = "Already added";
                 document.getElementById(btn_id).disabled = true;
+                location.reload();
             }
         };
         xhttp.open("POST", "/add_to_cart", true);
@@ -125,6 +127,7 @@
 
                 document.getElementById(btn_id).innerHTML = "Already added";
                 document.getElementById(btn_id).disabled = true;
+                location.reload();
             }
         };
         xhttp.open("POST", "/add_to_cart", true);
@@ -162,6 +165,7 @@ overdraw a content on that,
         $books_in_my_cart = App\Cart::where('user_id',Auth::user()->id)->get();
         if($books_in_my_cart->count()!=0){
             foreach ($books_in_my_cart as $cartbook) {
+            	if(strcmp($cartbook->status, "unpaid")!=0) continue;
                 $book;
                 $image_src="images/";
 
