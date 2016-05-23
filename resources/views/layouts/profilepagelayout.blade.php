@@ -138,7 +138,7 @@ overdraw a content on that,
     -->
     <div class="right_add_div">
         <!-- i will put cart icons here -->
-        <div class="cart_div">
+        <div class="cart_div" onclick="openModal('modal_cart')">
             <div style="width:100%; height: 75%;">
                 <img class="cart_img" src="{{URL::asset('images/cart.png')}}">
             </div>

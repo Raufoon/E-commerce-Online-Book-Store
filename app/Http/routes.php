@@ -30,6 +30,7 @@ Route::post('/view/book','mycontrollers\BooksPageController@viewBook');
 after clicking on addToCart button
 */
 Route::post('/add_to_cart','mycontrollers\BusinessController@addToCart');
+Route::post('/remove_from_cart','mycontrollers\BusinessController@removeFromCart');
 
 
 

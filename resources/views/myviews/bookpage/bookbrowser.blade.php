@@ -31,33 +31,7 @@
 		document.getElementById('view_book_form').submit();
 
 	}
-	function addToCart(id)
-	{
-		var xhttp = new XMLHttpRequest();
-		xhttp.onreadystatechange = function() {
-		    if (xhttp.readyState == 4 && xhttp.status == 200) {
-
-		    	var str1 = "btn_";
-		    	var resp=xhttp.responseText;
-		    	
-		    	resp = resp.replace(/"/g, "");
-		    	
-		    	var btn_id = str1.concat(resp);
-
-			    document.getElementById(btn_id).innerHTML = "Already added";
-			    document.getElementById(btn_id).disabled = true;
-		    }
-		};
-		xhttp.open("POST", "/add_to_cart", true);
-		xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-		xhttp.setRequestHeader("X-CSRF-Token", "{{ csrf_token() }}");
-
-		var str1="book_to_add_cart=";
-		var param = str1.concat(id);
-		param = param.concat("&sell_from=inventory");
-		xhttp.send(param);
-		
-	}
+	
 </script>
 
 
@@ -192,13 +166,10 @@ adding all books from database
 
 		?>
 	<div class="small_book_view" >
-		<div style="width: 32%;height:100%;background-color: white;float: left;">
-			<img style="border:none;width:100%;height:100%;" 
-			src="{{URL::asset($img_src)}}" 
-			/>	
-		
+		<div class="small_book_view-images">
+			<img class="small_book_view-single_img" src="{{URL::asset($img_src)}}"/>	
 		</div>
-		<div style="width: 66%;height:100%;margin-left:2%;float: right;">
+		<div class="small_book_view-content_div">
 			
 			<table style="width:100%;height:100%;">
 				<tr><td onclick="viewBook('{{$book->id}}')" style="font-weight: bold;"><a>{{$book->name}}</a></td></tr>
@@ -214,7 +185,7 @@ adding all books from database
 						?>
 						<button type="button"
 						id="btn_{{$book->id}}" 
-						onclick = "addToCart('{{$book->id}}')" 
+						onclick = "addToCart_inv('{{$book->id}}')" 
 						style="background-color: white;"
 						disabled>Already added</button> 
 						<?php
@@ -223,7 +194,7 @@ adding all books from database
 						?>
 						<button type="button"
 						id="btn_{{$book->id}}" 
-						onclick = "addToCart('{{$book->id}}')" 
+						onclick = "addToCart_inv('{{$book->id}}')" 
 						>Add to cart</button> 
 						<?php
 					}

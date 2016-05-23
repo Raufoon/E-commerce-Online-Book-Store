@@ -29,6 +29,155 @@
 
 <div class="maindiv">
 <!-- modals here -->
+
+
+
+<!-- CART MODAL -->
+<script type="text/javascript">
+    function openCart()
+    {
+        openModal('modal_cart');
+    }
+    function removeBookFromCart(id)
+    {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (xhttp.readyState == 4 && xhttp.status == 200) {
+                var resp=xhttp.responseText;
+                
+                resp = resp.replace(/"/g, "");
+
+                 document.getElementById(resp).hidden = true;
+            }
+        };
+        xhttp.open("POST", "/remove_from_cart", true);
+        xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xhttp.setRequestHeader("X-CSRF-Token", "{{ csrf_token() }}");
+
+        var str1="book_to_remove_cart=";
+        var param = str1.concat(id);
+        param = param.concat("&view_id=");
+        param = param.concat(id);
+
+        xhttp.send(param);
+    }
+    function addToCart_inv(id)
+    {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (xhttp.readyState == 4 && xhttp.status == 200) {
+
+                var str1 = "btn_";
+                var resp=xhttp.responseText;
+                
+                resp = resp.replace(/"/g, "");
+                
+                var btn_id = str1.concat(resp);
+
+                document.getElementById(btn_id).innerHTML = "Already added";
+                document.getElementById(btn_id).disabled = true;
+            }
+        };
+        xhttp.open("POST", "/add_to_cart", true);
+        xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xhttp.setRequestHeader("X-CSRF-Token", "{{ csrf_token() }}");
+
+        var str1="book_to_add_cart=";
+        var param = str1.concat(id);
+        param = param.concat("&sell_from=inventory");
+        xhttp.send(param);
+        
+    }
+    function addToCart_ad(id)
+    {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (xhttp.readyState == 4 && xhttp.status == 200) {
+
+                var str1 = "btn_";
+                var resp=xhttp.responseText;
+                
+                resp = resp.replace(/"/g, "");
+                
+                var btn_id = str1.concat(resp);
+
+                document.getElementById(btn_id).innerHTML = "Already added";
+                document.getElementById(btn_id).disabled = true;
+            }
+        };
+        xhttp.open("POST", "/add_to_cart", true);
+        xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xhttp.setRequestHeader("X-CSRF-Token", "{{ csrf_token() }}");
+
+        var str1="book_to_add_cart=";
+        var param = str1.concat(id);
+        param = param.concat("&sell_from=advertised");
+        xhttp.send(param);
+        
+    }
+
+
+</script>
+
+<div id="modal_cart" class="modal cart">
+    <!-- Modal content -->
+    <div class="modal-content cart">
+        <div class="modal-header">
+            <img src="{{URL::asset('images/cart2.png')}}" style="float: left;width: 5vw;height: 5vw;">
+            <h2 id="cart_title" style="margin-left: 2vw;color: #7793b5;float: left;">Your cart</h2>
+            <button class="submit_modal_btn" style="float: right;">Begin Transaction</button>
+        </div>
+        <div class="modal-body">
+        <div style="width:100%;height: 100%;">
+        <?php
+        $books_in_my_cart = App\Cart::where('user_id',Auth::user()->id)->get();
+        if($books_in_my_cart->count()!=0){
+            foreach ($books_in_my_cart as $cartbook) {
+                $book;
+                $image_src="images/";
+
+                if(strcmp($cartbook->sell_from, "inventory")==0)
+                {
+                    $image_src= $image_src."bookpics/";
+                    $book = App\Books::find($cartbook->book_id);
+                }
+                else
+                {
+                    $image_src= $image_src."advertised_books/";
+                    $book = App\AdvertisedBooks::find($cartbook->book_id);
+                }
+                $image_src= $image_src.$book->id.".jpg";
+                ?>
+                <div id="{{$cartbook->SL}}" style="width:20vw;height:7vw;float: left;margin: 1vw;box-shadow: 0 0 5px 1px #d6d6d6;">
+                    <img src="{{URL::asset($image_src)}}" style="width:35%;height:100%;float:left;margin-right: 5%;">
+                    <label style="margin:0;width:60%;height:40%;float:left;">{{$book->name}}</label>
+                    <label style="margin:0;width:60%;height:30%;float:left;font-weight:normal;">Price: {{$book->price}} Tk</label>
+                    <button onclick="removeBookFromCart('{{$cartbook->SL}}')" style="margin:0;width:30%;height:30%;float:right">Remove</button>
+                </div>               
+                <?php   
+            }        
+        }
+        ?>
+
+        
+        </div>
+        </div>
+
+        
+
+        
+
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
 <!-- modal: advertise book -->
 <!-- 
 A modal is an html code which appears to be over the page as pop up window
@@ -75,6 +224,7 @@ overdraw a content on that,
     </div>
 </div>
 <script type="text/javascript" src="{{URL::asset('scripts/modal.js')}}"></script>
+
 <!-- end modal -->
 
 
@@ -104,7 +254,7 @@ overdraw a content on that,
     <div class="right_add_div">
         <!-- i will put cart icons here -->
         <div class="cart_div">
-            <div style="width:100%; height: 75%;">
+            <div style="width:100%; height: 75%;" onclick="openCart()">
                 <img class="cart_img" src="{{URL::asset('images/cart.png')}}">
             </div>
             <div style="width:100%; height: 25%;">

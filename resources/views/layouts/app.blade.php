@@ -29,8 +29,8 @@
     </style>
 </head>
 <body id="app-layout">
-    <nav class="navbar navbar-default navbar-static-top" style="background-color: white;">
-        <div class="container">
+    <nav class="navbar navbar-default navbar-static-top" style="background-color: white;margin-bottom:0px;">
+        <div class="container" style="margin-bottom:0px;padding-bottom: 0px;">
             <div class="navbar-header">
 
                 <!-- Collapsed Hamburger -->
