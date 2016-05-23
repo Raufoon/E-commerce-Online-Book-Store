@@ -32,6 +32,14 @@ after clicking on addToCart button
 Route::post('/add_to_cart','mycontrollers\BusinessController@addToCart');
 Route::post('/remove_from_cart','mycontrollers\BusinessController@removeFromCart');
 
+Route::post('/pay/direct','mycontrollers\BusinessController@loadCashmemoPage');
+
+/*
+***************
+Transaction
+*/
+Route::post('/transaction', 'mycontrollers\BusinessController@Transact');
+
 
 
 Route::get('/global/{page}', 'mycontrollers\Controller@loadPage');

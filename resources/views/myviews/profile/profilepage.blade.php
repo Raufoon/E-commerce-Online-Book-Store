@@ -148,9 +148,13 @@ overdraw a content on that,
     <!-- Modal content -->
     <div class="modal-content cart">
         <div class="modal-header">
+        	<form action="/pay/direct" method="post">
+            <input type="hidden" name="_token" value="{{ csrf_token() }}">
             <img src="{{URL::asset('images/cart2.png')}}" style="float: left;width: 5vw;height: 5vw;">
             <h2 id="cart_title" style="margin-left: 2vw;color: #7793b5;float: left;">Your cart</h2>
-            <button class="submit_modal_btn" style="float: right;">Begin Transaction</button>
+            <input class="submit_modal_btn" type="submit" style="float: right;" value="Begin Transaction">
+        </form>
+            
         </div>
         <div class="modal-body">
         <div style="width:100%;height: 100%;">
