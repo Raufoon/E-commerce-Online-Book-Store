@@ -204,22 +204,22 @@ overdraw a content on that,
       <form method="POST" action="/advertise_book" enctype="multipart/form-data">
       <div class="modal-body">
       <table style="width:100%;">
-        <tr>
+        <tr style="width:100%;">
             <td>Picture:</td><td><input type="file" name="new_book_pic" accept=".jpg"></td>
         </tr>
-        <tr>
+        <tr  style="width:100%;">
             <td>Name:</td><td><input name="new_book_name" ></td>
         </tr>
-        <tr>
+        <tr  style="width:100%;">
             <td>Author:</td><td><input name="new_book_author" ></td>
         </tr>
-        <tr>
+        <tr style="width:100%;">
             <td>Price:</td><td><input name="new_book_price" ></td>
         </tr>
-        <tr>
+        <tr style="width:100%;">
             <td>Print:</td><td><select name="new_book_print">
-                <option value="Photocopy" selected>Photocopy</option>
-                <option value="Printed Copy">Printed Copy</option>
+                <option value="Photocopy" >Photocopy</option>
+                <option value="Printed Copy"selected>Printed Copy</option>
                 <option value="Original">Original</option>
             </select></td>
         </tr>
