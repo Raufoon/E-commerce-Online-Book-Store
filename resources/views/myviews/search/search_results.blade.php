@@ -68,10 +68,10 @@
 			foreach ($all_rows as $user_data) {
 
 				// search was made for blank search text, so break
-				if(strcmp($search_word, " ")===0) break;
+				//if() break;
 
 				// $search_word isn't substring of the name of the current person 
-				if(strpos(strtolower($user_data->name),strtolower($search_word))===false) {
+				if(strcmp($search_word, "")!=0 && strpos(strtolower($user_data->name),strtolower($search_word))===false) {
 					// do nothing
 				}
 

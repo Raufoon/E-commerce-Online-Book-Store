@@ -15,7 +15,6 @@
 	<button class="option_button" onclick="newPage('/profile/my_ads')">My Ads</button>
 	<button class="option_button" onclick="newPage('/profile/my_auctions')">My Auctions</button>
 	<button class="option_button" onclick="newPage('/profile/my_purchases')">Purchase history</button>
-	<button class="option_button" onclick="newPage('/profile/my_sales')">Sale history</button>
 @endsection
 
 

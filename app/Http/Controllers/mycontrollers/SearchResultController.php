@@ -30,7 +30,7 @@ class SearchResultController extends Controller
         */
         if(strcmp($search_key, "")===0)
         {
-            return view('/welcome');
+            //return view('/welcome');
         }
 
         /*
