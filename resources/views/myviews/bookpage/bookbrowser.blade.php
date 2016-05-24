@@ -48,6 +48,7 @@
 	<input id="sell_type" name="sell_type" value="{{$sell_type}}" hidden>
 	<input id="lang" name="lang" value="{{$lang}}" hidden>
 	<input id="print_type" name="print_type" value="{{$print_type}}" hidden>
+	<input id="search_key" name="search_key" value="{{$search_key}}" hidden>
 	<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
 
@@ -60,6 +61,11 @@
 		if(lang.localeCompare("-")!=0) document.getElementById("lang").value=lang;
 		if(print.localeCompare("-")!=0) document.getElementById("print_type").value=print;
 
+		document.getElementById("book_filter_form").submit();
+	}
+	function setSearchKey()
+	{
+		document.getElementById("search_key").value = document.getElementById("search_bar").value;
 		document.getElementById("book_filter_form").submit();
 	}
 </script>
@@ -117,13 +123,14 @@
 -->
 <div style="width:100%;height:3vw;margin-bottom: 10px;">
 	
-	<input type="book_search_bar" name="book_search_bar" style="margin: 5px 5px 0 0 ;
+	<input id="search_bar" value="{{$search_key}}" type="book_search_bar" name="book_search_bar" style="margin: 5px 5px 0 0 ;
 	float:right;width:15vw;height:2.5vw;
 	border: 1px #86abc8 solid;
 	border-radius: 3px;" />
 
 	<img style="margin: 5px 5px 0 0;float:right;width:2.3vw;height:2.3vw;"
 		src="{{URL::asset('images/searchicon.png')}}" 
+		onclick="setSearchKey()" 
 	/>
 
 </div>
@@ -139,6 +146,11 @@ adding all books from database
 		$img_src= "/images/bookpics/".$book->id.".jpg";
 
 		//filter here by comparing the filter values
+		if(strcmp($search_key,"")!=0 && strpos(strtolower($book->name),strtolower($search_key))===false)
+		{
+			continue;
+		}
+
 		if( strcmp(strtolower($category), "all")!= 0 
 			&& strcmp(strtolower($category), strtolower($book->category))!= 0) continue;
 

@@ -75,6 +75,11 @@ addition of new book by manager
 Route::post('/profile/office/inventory/book_add','mycontrollers\ManagerFunctionController@addBookToDatabase');
 
 /*
+order done by manager
+*/
+Route::post('/send_order_done','mycontrollers\ManagerFunctionController@order_done');
+
+/*
 advertisement of book by user
 */
 Route::post('/advertise_book','mycontrollers\UserAdController@addAd');

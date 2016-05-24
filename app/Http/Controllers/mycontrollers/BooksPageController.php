@@ -24,13 +24,13 @@ class BooksPageController extends Controller
      */
     public function index()
     {
-        $view = View::make('myviews\bookpage\bookbrowser')->with('category', 'all')->with('price_range', 'all')->with('sell_type', 'all')->with('lang', 'all')->with('print_type', 'all');
+        $view = View::make('myviews\bookpage\bookbrowser')->with('category', 'all')->with('price_range', 'all')->with('sell_type', 'all')->with('lang', 'all')->with('print_type', 'all')->with('search_key', '');
         return $view;
     }
 
     public function process_filter()
     {
-        $view = View::make('myviews\bookpage\bookbrowser')->with('category', $_POST["category"])->with('price_range', $_POST["price_range"])->with('sell_type', $_POST["sell_type"])->with('lang', $_POST["lang"])->with('print_type', $_POST["print_type"]);
+        $view = View::make('myviews\bookpage\bookbrowser')->with('category', $_POST["category"])->with('price_range', $_POST["price_range"])->with('sell_type', $_POST["sell_type"])->with('lang', $_POST["lang"])->with('print_type', $_POST["print_type"])->with('search_key', $_POST["search_key"]);
 
         return $view;
     }

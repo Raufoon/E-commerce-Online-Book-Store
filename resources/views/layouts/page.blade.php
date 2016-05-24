@@ -205,16 +205,16 @@ overdraw a content on that,
       <div class="modal-body">
       <table style="width:100%;">
         <tr style="width:100%;">
-            <td>Picture:</td><td><input type="file" name="new_book_pic" accept=".jpg"></td>
+            <td>Picture:</td><td><input type="file" name="new_book_pic" accept=".jpg" required></td>
         </tr>
         <tr  style="width:100%;">
-            <td>Name:</td><td><input name="new_book_name" ></td>
+            <td>Name:</td><td><input name="new_book_name" required></td>
         </tr>
         <tr  style="width:100%;">
-            <td>Author:</td><td><input name="new_book_author" ></td>
+            <td>Author:</td><td><input name="new_book_author"  required></td>
         </tr>
         <tr style="width:100%;">
-            <td>Price:</td><td><input name="new_book_price" ></td>
+            <td>Price:</td><td><input name="new_book_price"  required></td>
         </tr>
         <tr style="width:100%;">
             <td>Print:</td><td><select name="new_book_print">

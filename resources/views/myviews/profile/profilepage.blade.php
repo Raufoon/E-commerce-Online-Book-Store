@@ -213,7 +213,7 @@ overdraw a content on that,
 	  <form method="POST" action="/profile/propic/save" enctype="multipart/form-data">
 	  <div class="modal-body">
 	    
-	    	<input type="file" name="pp_to_upload" accept=".jpg">
+	    	<input type="file" name="pp_to_upload" accept=".jpg"  required>
 	    	<input type="hidden" name="_token" value="{{ csrf_token() }}">
 	  </div>
 	  <div class="modal-footer">
