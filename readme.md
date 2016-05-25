@@ -21,6 +21,16 @@
 <li>Security</li>
 </ul>
 
+<h3>Views</h3>
+<ul>
+
+<li>
+Index page<br>
+<img width="100%" height="200px" src="http://i.imgur.com/UWioOpQ.jpg"></img>
+</li>
+
+</ul>
+
 <h3>Limitations</h3>
 <ul>
 <li>Auction system not implemented</li>
