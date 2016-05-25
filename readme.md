@@ -29,6 +29,73 @@ Index page<br>
 <img width="100%" height="380px" src="http://i.imgur.com/UWioOpQ.jpg"></img>
 </li>
 
+<li>
+Profile page<br>
+<img width="100%" height="380px" src="http://i.imgur.com/k5szths.png"></img>
+</li>
+
+
+<li>
+My ads page<br>
+<img width="100%" height="380px" src="http://i.imgur.com/Ughp1E8.png"></img>
+</li>
+
+
+<li>
+Purchase history<br>
+<img width="100%" height="380px" src="http://i.imgur.com/SAKplu7.png"></img>
+</li>
+
+
+<li>
+Search results<br>
+<img width="100%" height="380px" src="http://i.imgur.com/QmIi0cy.png"></img>
+</li>
+
+
+<li>
+All ads<br>
+<img width="100%" height="380px" src="http://i.imgur.com/DnQybuy.png"></img>
+</li>
+
+
+<li>
+Manager's office page<br>
+<img width="100%" height="380px" src="http://i.imgur.com/VmW8LT8.png"></img>
+</li>
+
+
+<li>
+Manager's employee list<br>
+<img width="100%" height="380px" src="http://i.imgur.com/A37PGgF.png"></img>
+</li>
+
+
+<li>
+Order to take book from seller<br>
+<img width="100%" height="380px" src="http://i.imgur.com/ZTuWJ5R.png"></img>
+</li>
+
+
+<li>
+Order to deliver books<br>
+<img width="100%" height="380px" src="http://i.imgur.com/Rb0DAga.png"></img>
+</li>
+
+
+<li>
+Cash memo<br>
+<img width="100%" height="380px" src="http://i.imgur.com/JxY1bF6.png"></img>
+</li>
+
+
+<li>
+Cart<br>
+<img width="100%" height="380px" src="http://i.imgur.com/8LdviF6.png"></img>
+</li>
+
+
+
 </ul>
 
 <h3>Limitations</h3>
