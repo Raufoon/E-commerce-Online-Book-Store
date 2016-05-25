@@ -26,7 +26,7 @@
 
 <li>
 Index page<br>
-<img width="100%" height="360px" src="http://i.imgur.com/UWioOpQ.jpg"></img>
+<img width="100%" height="380px" src="http://i.imgur.com/UWioOpQ.jpg"></img>
 </li>
 
 </ul>
